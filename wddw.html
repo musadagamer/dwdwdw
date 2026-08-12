@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Ocean World website by Leo (Age 10)</title>
+    <style>
+        /* I like blue cuz it looks like water */
+        body {
+            background-color: #cce6ff;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 15px;
+        }
+
+        /* Top banner with a little crooked tilt */
+        .banner {
+            background-color: #0080ff;
+            border: 4px dashed yellow;
+            padding: 15px;
+            text-align: center;
+            transform: rotate(0.5deg);
+        }
+
+        h1 {
+            color: white;
+            font-size: 32px;
+            text-shadow: 2px 2px black;
+        }
+
+        /* Nav links table */
+        table.navtable {
+            background-color: #ff9900;
+            width: 100%;
+            margin-top: 10px;
+            border: 3px solid black;
+        }
+
+        table.navtable td {
+            text-align: center;
+            font-weight: bold;
+            padding: 8px;
+            font-size: 18px;
+        }
+
+        a {
+            color: darkblue;
+            text-decoration: none;
+        }
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        /* Content block */
+        .box {
+            background-color: #ffffff;
+            border: 3px solid green;
+            margin-top: 15px;
+            padding: 15px;
+        }
+
+        /* Spinner simulation box */
+        .spinner-box {
+            border: 2px dotted purple;
+            background-color: #ffffcc;
+            text-align: center;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .spin-circle {
+            width: 40px;
+            height: 40px;
+            border: 5px solid lightgray;
+            border-top: 5px solid blue;
+            border-radius: 50%;
+            margin: 0 auto;
+            animation: spin 1s infinite linear; /* wait JS or CSS animation */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 25px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <h1>Welcome To My Ocean Wolrd!</h1>
+        <p style="color: yellow;"><b>Assignment:</b> Bootstrap Utilities - Part 2</p>
+    </div>
+
+    <!-- Kid mistake: typos in nav names like HmtC, Simple, Clsspt -->
+    <table class="navtable">
+        <tr>
+            <td><a href="#home">HmtC</a></td>
+            <td><a href="#simple">Simple</a></td>
+            <td><a href="#clsspt">Clsspt</a></td>
+        </tr>
+    </table>
+
+    <div class="box" id="home">
+        <h2>My Sea Animals Cards</h2>
+        <p>In this assignment, you will build an Ocean World webpage using Bootstrap. You will add a navigation bar, show loading spinners, create sea-animal cards, and use pagination to browse more content.</p>
+        
+        <!-- Loading spinner demo -->
+        <div class="spinner-box">
+            <p>Loading sea animals...</p>
+            <div class="spin-circle"></div>
+        </div>
+
+        <p><b>Due date of submission:</b> 11:59 PM PST, Aug 14, 2026</p>
+
+        <button style="background-color: #ff5733; color: white; padding: 8px 15px; font-size: 16px; border-radius: 5px; cursor: pointer;" onclick="alert('Submitted successfully! Yay!!')">
+            Submit now
+        </button>
+        <span style="font-weight: bold; color: gray; margin-left: 8px;">+100 points ⓘ</span>
+    </div>
+
+    <div class="box" id="simple">
+        <h2>Simple Page</h2>
+        <p>This is the simple section with fish cards (I couldn't figure out real bootstrap so I used plain HTML tables lol).</p>
+    </div>
+
+    <div class="box" id="clsspt">
+        <h2>Clsspt (Class Support)</h2>
+        <p>Here is pagination button simulation:</p>
+        <button onclick="changePage(1)">« Prev</button>
+        <span id="pageTxt" style="font-weight: bold; margin: 0 10px;">Page 1 of 3</span>
+        <button onclick="changePage(2)">Next »</button>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Ocean World Project - Made by Leo</p>
+    </div>
+
+    <script>
+        // Pagination tiny bug simulation
+        var pNum = 1;
+        function changePage(dir) {
+            if(dir === 2) {
+                pNum = pNum + 1;
+            } else {
+                pNum = pNum - 1;
+            }
+            if(pNum > 3) {
+                pNum = 3; // stops at 3 but error text sometimes shows
+            }
+            if(pNum < 1) {
+                pNum = 1;
+            }
+            document.getElementById("pageTxt").innerHTML = "Page " + pNum + " of 3";
+        }
+
+        console.log("Ocean world script loaded ok!");
+    </script>
+</body>
+</html>
