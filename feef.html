@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Study Progress Dashboard by Sam (Age 11)</title>
+    <style>
+        /* Light purple background looks cool */
+        body {
+            background-color: #f2e6ff;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 15px;
+        }
+
+        /* Jumbotron header box */
+        .jumbotron-box {
+            background-color: #9933ff;
+            border: 4px dashed cyan;
+            padding: 20px;
+            text-align: center;
+            transform: rotate(-0.5deg);
+        }
+
+        h1 {
+            color: yellow;
+            font-size: 32px;
+            text-shadow: 2px 2px black;
+        }
+
+        /* Subject buttons bar */
+        table.subtable {
+            background-color: #ff66b2;
+            width: 100%;
+            margin-top: 15px;
+            border: 3px solid black;
+        }
+
+        table.subtable td {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            color: yellow;
+            text-decoration: underline;
+        }
+
+        /* Main content area */
+        .dashboard-content {
+            background-color: white;
+            border: 3px solid orange;
+            margin-top: 15px;
+            padding: 20px;
+        }
+
+        /* Progress bar simulation */
+        .prog-container {
+            width: 100%;
+            background-color: #ddd;
+            border: 2px solid black;
+            height: 25px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .prog-bar {
+            width: 65%; /* kid progress */
+            height: 100%;
+            background-color: #4CAF50;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 11px;
+            margin-top: 25px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="jumbotron-box">
+        <h1>My Study Proggress Dashboard!</h1>
+        <p style="color: white;"><b>Assignment:</b> Bootstrap Utilities - Part 1 (I tried my best)</p>
+    </div>
+
+    <!-- Kid mistake: typos in subject buttons -->
+    <table class="subtable">
+        <tr>
+            <td><a href="#math">Maths <span style="background:red; padding:2px 5px; border-radius:50%;">12</span></a></td>
+            <td><a href="#science">Scienec <span style="background:red; padding:2px 5px; border-radius:50%;">8</span></a></td>
+            <td><a href="#history">Histry <span style="background:red; padding:2px 5px; border-radius:50%;">5</span></a></td>
+        </tr>
+    </table>
+
+    <div class="dashboard-content" id="math">
+        <h2>My Learning Progress</h2>
+        <p>In this assignment, you will build a Study Progress Dashboard using Bootstrap. You will create a jumbotron header, add subject buttons, display lesson counts with badges, and show learning progress with progress bars.</p>
+        
+        <!-- Progress Bar Demo -->
+        <p><b>Math Lessons Completed:</b></p>
+        <div class="prog-container">
+            <div class="prog-bar" id="pBar">65%</div>
+        </div>
+        <button onclick="boostProgress()">Boost Progress!</button>
+
+        <p style="margin-top: 15px;"><b>Due date of submission:</b> 11:59 PM PST, Aug 12, 2026</p>
+
+        <button style="background-color: #ff5733; color: white; padding: 10px 18px; font-size: 16px; border-radius: 5px; cursor: pointer;" onclick="alert('Assignment Submitted! Yay 100 points!!')">
+            Submit now
+        </button>
+        <span style="font-weight: bold; color: gray; margin-left: 10px;">+100 points ⓘ</span>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Study Dashboard Project - Sam</p>
+    </div>
+
+    <script>
+        // Tiny bug: clicking boost progress goes past 100% to look funny
+        var currentProg = 65;
+        function boostProgress() {
+            currentProg = currentProg + 15;
+            if(currentProg > 115) {
+                currentProg = 100; // caps at 100 with a slight delay bug text
+            }
+            document.getElementById("pBar").style.width = currentProg + "%";
+            document.getElementById("pBar").innerHTML = currentProg + "%";
+        }
+
+        console.log("Dashboard script loaded correctly yay!");
+    </script>
+</body>
+</html>
